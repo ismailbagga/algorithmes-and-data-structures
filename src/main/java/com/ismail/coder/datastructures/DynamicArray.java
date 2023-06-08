@@ -1,4 +1,4 @@
-package ismail.coder.datastructures;
+package com.ismail.coder.datastructures;
 import java.util.Iterator;
 import java.util.function.Consumer;
 
@@ -183,7 +183,5 @@ public class DynamicArray<T extends Comparable<T> > implements Iterable<T> {
         };
     }
 
-    public int getLength() {
-        return length;
-    }
+
 }
