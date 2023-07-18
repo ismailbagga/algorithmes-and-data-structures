@@ -1,6 +1,7 @@
 package com.ismail.coder.datastructures;
 
 import javax.naming.OperationNotSupportedException;
+import java.util.Arrays;
 
 public class LinkedList<T extends Comparable<T>> {
     ListNode<T> head;
@@ -35,15 +36,64 @@ public class LinkedList<T extends Comparable<T>> {
         size = length;
     }
 
+    public int indexOf(T value) {
+        var curr = head;
+        int index = 0;
+        while (curr != null) {
+            if (curr.value.equals(value)) return index;
+            index++;
+            curr = curr.next;
 
-
-    public boolean contains(T value ) {
-        var curr = head ;
-        while (curr != null ) {
-            if ( curr.value.equals(value)) return  true;
-            curr = curr.next ;
         }
-        return false  ;
+        return -1;
+    }
+
+    public boolean transpositionByValueSearch(T value) {
+        var curr = head;
+        ListNode<T> prev = null;
+
+        while (curr != null) {
+            if (curr.value.equals(value)) {
+                if (prev == null) return true;
+                curr.value = prev.value;
+                prev.value = value;
+                return true;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    public boolean transpositionByRefSearch(T value) {
+        var curr = head;
+        ListNode<T> prev = null;
+        ListNode<T> prevOfPrev = null;
+
+        while (curr != null) {
+            if (curr.value.equals(value)) {
+                if (prev == null) return true;
+                prev.next = curr.next;
+                curr.next = prev;
+                if (prevOfPrev == null) head = curr;
+
+                else prevOfPrev.next = curr;
+                return true;
+            }
+            prevOfPrev = prev;
+            prev = curr;
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    public boolean contains(T value) {
+        var curr = head;
+        while (curr != null) {
+            if (curr.value.equals(value)) return true;
+            curr = curr.next;
+        }
+        return false;
     }
 
     public void append(T value) {
@@ -123,11 +173,11 @@ public class LinkedList<T extends Comparable<T>> {
     }
 
     public static <V extends Number & Comparable<V>> V max(LinkedList<V> list) {
-        if (list.size == 0 ) throw  new IllegalStateException("array must be more than one") ;
+        if (list.size == 0) throw new IllegalStateException("array must be more than one");
         V maxValue = list.head.value;
         var curr = list.head.next;
         while (curr != null) {
-            if ( maxValue.compareTo(curr.value) < 0 ) maxValue = curr.value;
+            if (maxValue.compareTo(curr.value) < 0) maxValue = curr.value;
             curr = curr.next;
         }
         return maxValue;

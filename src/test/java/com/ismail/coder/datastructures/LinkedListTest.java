@@ -101,4 +101,44 @@ class LinkedListTest {
         assertFalse(list_3.contains(null));
 
     }
+
+    @Test
+    void getIndexOfListItem() {
+        assertEquals(0, list_1.indexOf(1));
+        assertEquals(1, list_1.indexOf(2));
+        assertEquals(2, list_1.indexOf(3));
+        assertEquals(4, list_1.indexOf(10));
+        assertEquals(-1, list_1.indexOf(100));
+
+        assertEquals(0, list_2.indexOf(1));
+        assertEquals(-1, list_2.indexOf(100));
+
+        assertEquals(-1, list_3.indexOf(100));
+    }
+
+    @Test
+    void transpositionSearchByValue() {
+//        assertEquals();
+        int size = list_1.size() ;
+        for (int i = 0 ; i< size + 10 ; i++) {
+
+            int indexBeforeTheSearch = list_1.indexOf(10) ;
+            assertTrue( list_1.transpositionByValueSearch(10) );
+            int indexAfterTheSearch  = list_1.indexOf(10) ;
+            int expectedIndex = indexBeforeTheSearch - 1 ;
+            assertEquals(Math.max(expectedIndex, 0),indexAfterTheSearch);
+        }
+    }
+    @Test
+    void transpositionSearchByRef() {
+        int size = list_1.size() ;
+        for (int i = 0 ; i< size + 10 ; i++) {
+
+           int indexBeforeTheSearch = list_1.indexOf(10) ;
+           assertTrue( list_1.transpositionByRefSearch(10) );
+           int indexAfterTheSearch  = list_1.indexOf(10) ;
+           int expectedIndex = indexBeforeTheSearch - 1 ;
+            assertEquals(Math.max(expectedIndex, 0),indexAfterTheSearch);
+        }
+    }
 }
