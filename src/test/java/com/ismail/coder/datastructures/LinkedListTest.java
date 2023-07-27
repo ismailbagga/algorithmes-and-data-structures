@@ -129,6 +129,19 @@ class LinkedListTest {
             assertEquals(Math.max(expectedIndex, 0),indexAfterTheSearch);
         }
     }
+
+    @Test
+    void insertAtTest() {
+        var list = new LinkedList<>(new Integer[]{1,2,3}) ;
+        assertEquals(list.toString(),"[1,2,3]");
+        list.insertAt(99,0);
+        assertEquals(0,list.indexOf(99));
+        assertEquals(1,list.indexOf(1));
+        list.insertAt(80,list.size());
+        assertEquals(list.size()-1,list.indexOf(80));
+        assertEquals(list.size()-2,list.indexOf(3));
+    }
+
     @Test
     void transpositionSearchByRef() {
         int size = list_1.size() ;

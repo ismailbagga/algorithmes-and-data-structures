@@ -36,6 +36,33 @@ public class LinkedList<T extends Comparable<T>> {
         size = length;
     }
 
+    public void insertAtHead(T value) {
+        head = new ListNode<T>(value, head);
+        if (tail == null) tail = head;
+        size++;
+    }
+
+    public void insertAtTail(T value) {
+        var newNode = new ListNode<T>(value, null);
+        tail.next = newNode;
+        tail = newNode;
+        if (head == null) head = tail;
+        size++;
+    }
+
+    public void insertAt(T value, int insertAt) {
+        if (insertAt < 0 || insertAt > size)
+            throw new IndexOutOfBoundsException(String.format("Index = %d is out of bound", insertAt));
+        if (insertAt == 0) this.insertAtHead(value);
+        else if (insertAt == size) this.insertAtTail(value);
+        else {
+            ListNode<T> curr = head;
+            for (int i = 0; i < insertAt - 1; curr = curr.next, i++) ;
+            curr.next = new ListNode<T>(value, curr.next);
+            size++;
+        }
+    }
+
     public int indexOf(T value) {
         var curr = head;
         int index = 0;
@@ -76,8 +103,10 @@ public class LinkedList<T extends Comparable<T>> {
                 prev.next = curr.next;
                 curr.next = prev;
                 if (prevOfPrev == null) head = curr;
-
-                else prevOfPrev.next = curr;
+                else {
+                    if (curr == tail) tail = prev;
+                    prevOfPrev.next = curr;
+                }
                 return true;
             }
             prevOfPrev = prev;
@@ -88,12 +117,7 @@ public class LinkedList<T extends Comparable<T>> {
     }
 
     public boolean contains(T value) {
-        var curr = head;
-        while (curr != null) {
-            if (curr.value.equals(value)) return true;
-            curr = curr.next;
-        }
-        return false;
+        return this.indexOf(value) != -1;
     }
 
     public void append(T value) {
