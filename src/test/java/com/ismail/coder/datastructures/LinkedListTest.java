@@ -37,6 +37,16 @@ class LinkedListTest {
     }
 
     @Test
+
+    void deleteAt() {
+        assertEquals(5, list_1.size());
+        assertTrue(list_1.contains(1));
+        list_1.deleteAt(0);
+        assertEquals(4, list_1.size());
+        assertFalse(list_1.contains(1));
+    }
+
+    @Test
     void insertToAnOrderList() {
         list_1.insertToAnOrderList(0);
         assertEquals(0, list_1.indexOf(0));

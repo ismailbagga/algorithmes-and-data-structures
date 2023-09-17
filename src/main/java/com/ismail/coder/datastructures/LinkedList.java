@@ -36,6 +36,26 @@ public class LinkedList<T extends Comparable<T>> {
         size = length;
     }
 
+    public void deleteAt(int deleteAt) {
+        if (deleteAt < 0 || deleteAt >= size)
+            throw new IndexOutOfBoundsException();
+        var curr = head;
+        ListNode<T> prev = null;
+        var index = 0;
+        while (curr != null && index != deleteAt) {
+            prev = curr;
+            curr = curr.next;
+            index++;
+        }
+        if (deleteAt == 0)
+            head = head.next;
+        else
+            prev.next = curr.next;
+        curr = prev = null;
+        size--;
+
+    }
+
     public T get(int index) {
         if (index < 0 || index >= size)
             throw new IndexOutOfBoundsException();
