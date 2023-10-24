@@ -1,7 +1,5 @@
 package com.ismail.coder.datastructures;
 
-import java.util.Optional;
-
 public class LinkedList<T extends Comparable<T>> {
     ListNode<T> head;
     ListNode<T> tail;
@@ -275,4 +273,19 @@ public class LinkedList<T extends Comparable<T>> {
         return maxValue;
     }
 
+    public boolean isThisListSorted(boolean orderDesc) {
+        var curr = head;
+        T prevValue = null;
+        if (this.size == 1)
+            return true;
+        while (curr != null) {
+            if (orderDesc && curr.value.compareTo(prevValue) > 0)
+                return false;
+            else if (!orderDesc && curr.value.compareTo(prevValue) < 0)
+                return false;
+            prevValue = curr.value;
+            curr = curr.next;
+        }
+        return true;
+    }
 }
