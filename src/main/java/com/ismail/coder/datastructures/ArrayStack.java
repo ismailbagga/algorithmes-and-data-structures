@@ -21,7 +21,7 @@ public class ArrayStack<T> {
 
     public void push(T value) {
         if (size >= capacity)
-            throw new IndexOutOfBoundsException(capacity);
+            throw new StackOverflowError();
         data[size++] = value;
     }
 
