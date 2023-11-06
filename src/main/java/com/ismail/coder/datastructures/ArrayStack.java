@@ -1,9 +1,11 @@
 package com.ismail.coder.datastructures;
 
+import com.ismail.coder.datastructures.ADT.SimpleStack;
+
 import java.util.EmptyStackException;
 
-public class ArrayStack<T> {
-    private int capacity;
+public class ArrayStack<T extends  Comparable<T>> implements SimpleStack<T> {
+    private final int capacity;
     private int size = 0;
     private T[] data;
 
@@ -16,7 +18,7 @@ public class ArrayStack<T> {
         if (capacity <= 0)
             throw new IllegalArgumentException();
         this.capacity = capacity;
-        this.data = (T[]) new Object[capacity];
+        this.data = (T[])   new Comparable[capacity];
     }
 
     public void push(T value) {
@@ -47,7 +49,7 @@ public class ArrayStack<T> {
 
     public T peek(int index) {
         if (index < 0 || index >= size)
-            throw new IndexOutOfBoundsException(index);
+            return null ;
         return data[index];
     }
 

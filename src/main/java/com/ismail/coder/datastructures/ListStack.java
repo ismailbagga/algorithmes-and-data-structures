@@ -1,8 +1,10 @@
 package com.ismail.coder.datastructures;
 
+import com.ismail.coder.datastructures.ADT.SimpleStack;
+
 import java.util.EmptyStackException;
 
-public class ListStack<T extends Comparable<T>> {
+public class ListStack<T extends Comparable<T>> implements SimpleStack<T> {
     private int capacity;
     private LinkedList<T> list;
 
@@ -21,6 +23,7 @@ public class ListStack<T extends Comparable<T>> {
         list.insertAtHead(value);
     }
 
+
     public T pop() {
         int size = list.size();
         if (size == 0)
@@ -31,16 +34,20 @@ public class ListStack<T extends Comparable<T>> {
     }
 
     public T peek(int index) {
-        // Stack Size Is The List Size
-        // The Validation Is Done Internaly
-        return list.get(index);
+        int size = list.size();
+        if (index < 0 || index >= size)
+            return null;
+        var lastElementIndex = size - 1;
+        var calculatedIndex = index - lastElementIndex;
+
+        return list.get(Math.abs(calculatedIndex));
     }
 
     public T stackTop() {
         int size = list.size();
         if (size == 0)
             return null;
-        return list.get(size - 1);
+        return list.get(0);
     }
 
     public boolean isEmpty() {
