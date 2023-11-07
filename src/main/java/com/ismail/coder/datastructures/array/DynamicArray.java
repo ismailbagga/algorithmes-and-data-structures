@@ -1,4 +1,4 @@
-package com.ismail.coder.datastructures;
+package com.ismail.coder.datastructures.array;
 import java.util.Iterator;
 import java.util.function.Consumer;
 

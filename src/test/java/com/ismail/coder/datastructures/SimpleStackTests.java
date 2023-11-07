@@ -1,6 +1,6 @@
 package com.ismail.coder.datastructures;
 
-import com.ismail.coder.datastructures.ADT.SimpleStack;
+import com.ismail.coder.datastructures.stack.SimpleStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

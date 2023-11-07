@@ -1,4 +1,4 @@
-package com.ismail.coder.datastructures;
+package com.ismail.coder.datastructures.list;
 
 public class LinkedList<T extends Comparable<T>> {
     ListNode<T> head;

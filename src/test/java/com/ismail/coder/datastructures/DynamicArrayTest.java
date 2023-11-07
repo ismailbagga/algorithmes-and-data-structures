@@ -1,5 +1,6 @@
 package com.ismail.coder.datastructures;
 
+import com.ismail.coder.datastructures.array.DynamicArray;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,4 @@
-package com.ismail.coder.datastructures.ADT;
-
-import java.util.EmptyStackException;
+package com.ismail.coder.datastructures.stack;
 
 public interface SimpleStack<T extends  Comparable<T>> {
     public void push(T value) ;

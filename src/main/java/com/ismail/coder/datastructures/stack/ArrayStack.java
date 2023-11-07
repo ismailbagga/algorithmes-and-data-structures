@@ -1,6 +1,4 @@
-package com.ismail.coder.datastructures;
-
-import com.ismail.coder.datastructures.ADT.SimpleStack;
+package com.ismail.coder.datastructures.stack;
 
 import java.util.EmptyStackException;
 
