@@ -1,4 +1,4 @@
-package com.ismail.coder.datastructures;
+package com.ismail.coder.datastructures.array;
 
 import com.ismail.coder.datastructures.array.DynamicArray;
 import org.junit.jupiter.api.BeforeEach;

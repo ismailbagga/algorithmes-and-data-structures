@@ -11,6 +11,7 @@ public class ArrayQueue<T>  implements Queue<T>{
         // When Need An Empty Space For isFull() to be true for size() == capacity
         // and isEmpty() to be true
         // while leaving the front pointer pointing at empty index to not let front == rear WHEN rear == front != -1
+        if( capacity <= 0 ) throw  new IllegalArgumentException("Capacity Can not be less or equal to zero") ;
         this.data = (T[]) new  Object[capacity+1];
     }
     @Override
@@ -19,7 +20,7 @@ public class ArrayQueue<T>  implements Queue<T>{
         rear = circularIndexing(rear+1);
         this.data[rear] = value ;
     }
-    public int circularIndexing(int value) {
+    private int circularIndexing(int value) {
         return value % data.length ;
     }
     @Override

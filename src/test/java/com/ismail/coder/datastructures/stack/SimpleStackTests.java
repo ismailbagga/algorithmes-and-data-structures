@@ -1,4 +1,4 @@
-package com.ismail.coder.datastructures;
+package com.ismail.coder.datastructures.stack;
 
 import com.ismail.coder.datastructures.stack.SimpleStack;
 import org.junit.jupiter.api.BeforeEach;

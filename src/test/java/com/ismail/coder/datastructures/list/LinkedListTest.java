@@ -1,4 +1,4 @@
-package com.ismail.coder.datastructures;
+package com.ismail.coder.datastructures.list;
 
 import com.ismail.coder.datastructures.list.LinkedList;
 import org.junit.jupiter.api.BeforeEach;

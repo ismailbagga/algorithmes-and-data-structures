@@ -5,13 +5,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayQueueTest {
+abstract  class QueueTests {
     Queue<Integer> queue;
     final int QUEUE_CAPACITY = 5 ;
 
-    public Queue<Integer> getQueueImpl(int capacity) {
-        return new ArrayQueue<>(capacity);
-    }
+    abstract Queue<Integer> getQueueImpl(int capacity) ;
 
     @BeforeEach()
     public void setUp() {
@@ -45,7 +43,6 @@ class ArrayQueueTest {
         assertEquals(0,queue.size());
         assertTrue(queue.isEmpty());
         assertFalse(queue.isFull());
-        System.out.println(queue);
         for (int i = 0; i < 5; i++) {
             queue.enqueue(i+1);
         }
@@ -58,6 +55,5 @@ class ArrayQueueTest {
         assertFalse(queue.isEmpty());
         assertTrue(queue.isFull());
         assertEquals(5,queue.size());
-        System.out.println(queue);
     }
 }
